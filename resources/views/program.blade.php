@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Program - Bimbel Pados Ilmu')
+@section('title', 'Program - Taman Belajar Sedjati')
 
 @section('description', 'Program bimbingan belajar untuk SD, SMP, dan SMA dengan metode pembelajaran yang efektif dan guru berpengalaman di Desa Gajah, Bojonegoro.')
 

@@ -4,11 +4,11 @@
             <!-- Tentang Kami -->
             <div>
                 <div class="flex items-center space-x-3 mb-4">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo Bimbel Pados Ilmu" class="h-10 w-auto">
-                    <h3 class="text-xl font-bold">Bimbel Pados Ilmu</h3>
+                    <img src="{{ asset('images/logo.png') }}" alt="Logo Taman Belajar Sedjati" class="h-10 w-auto">
+                    <h3 class="text-xl font-bold">Taman Belajar Sedjati</h3>
                 </div>
                 <p class="text-emerald-100 text-sm leading-relaxed">
-                    Bimbel pelajaran utama yang ditujukan untuk para murid agar dapat belajar lebih fokus dan mendapatkan pendampingan dari guru secara privat.
+                    Taman Belajar Sedjati adalah lembaga bimbingan belajar yang berlokasi di Desa Gajah, Bojonegoro. Kami hadir dengan komitmen untuk memberikan pendampingan belajar terbaik bagi siswa SD, SMP, dan SMA.
                 </p>
             </div>
 
@@ -93,7 +93,7 @@
     <div class="bg-emerald-700 py-4">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <p class="text-center text-emerald-100 text-sm">
-                © {{ date('Y') }} Bimbel Pados Ilmu. All rights reserved. | Belajar, Berkembang, Dan Berkarya Di Desa Gajah
+                © {{ date('Y') }} Taman Belajar Sedjati. All rights reserved. | Belajar, Berkembang, Dan Berkarya Di Desa Gajah
             </p>
         </div>
     </div>

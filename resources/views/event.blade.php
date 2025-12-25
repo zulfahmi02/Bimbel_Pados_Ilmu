@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Event & Kalender - Bimbel Pados Ilmu')
+@section('title', 'Event & Kalender - Taman Belajar Sedjati')
 
-@section('description', 'Lihat jadwal event dan kegiatan Bimbel Pados Ilmu. Ikuti berbagai event menarik dan kegiatan edukatif untuk meningkatkan prestasi belajar.')
+@section('description', 'Lihat jadwal event dan kegiatan Taman Belajar Sedjati. Ikuti berbagai event menarik dan kegiatan edukatif untuk meningkatkan prestasi belajar.')
 
 @section('content')
 

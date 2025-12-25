@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Tentang Kami - Bimbel Pados Ilmu')
+@section('title', 'Tentang Kami - Taman Belajar Sedjati')
 
-@section('description', 'Kenali lebih dekat Bimbel Pados Ilmu, visi misi kami, dan tim pengajar berpengalaman yang siap membantu meningkatkan prestasi belajar Anda.')
+@section('description', 'Kenali lebih dekat Taman Belajar Sedjati, visi misi kami, dan tim pengajar berpengalaman yang siap membantu meningkatkan prestasi belajar Anda.')
 
 @section('content')
 
@@ -11,7 +11,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 class="text-4xl sm:text-5xl font-bold mb-4 fade-in">Tentang Kami</h1>
         <p class="text-xl text-emerald-100 max-w-3xl mx-auto fade-in">
-            Mengenal lebih dekat Bimbel Pados Ilmu dan komitmen kami dalam dunia pendidikan
+            Mengenal lebih dekat Taman Belajar Sedjati dan komitmen kami dalam dunia pendidikan
         </p>
     </div>
 </section>
@@ -21,9 +21,9 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Bimbel Pados Ilmu</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6"> Taman Belajar Sedjati</h2>
                 <p class="text-lg text-gray-700 leading-relaxed mb-4">
-                    Bimbel Pados Ilmu adalah lembaga bimbingan belajar yang berlokasi di Desa Gajah, Bojonegoro. Kami hadir dengan komitmen untuk memberikan pendampingan belajar terbaik bagi siswa SD, SMP, dan SMA.
+                    Taman Belajar Sedjati adalah lembaga bimbingan belajar yang berlokasi di Desa Gajah, Bojonegoro. Kami hadir dengan komitmen untuk memberikan pendampingan belajar terbaik bagi siswa SD, SMP, dan SMA.
                 </p>
                 <p class="text-lg text-gray-700 leading-relaxed mb-4">
                     Dengan metode pembelajaran yang efektif dan guru-guru berpengalaman, kami membantu siswa memahami materi pelajaran dengan lebih baik, meningkatkan prestasi akademik, dan mempersiapkan mereka menghadapi ujian dengan percaya diri.
@@ -33,7 +33,7 @@
                 </p>
             </div>
             <div class="rounded-2xl overflow-hidden shadow-2xl">
-                <img src="{{ asset('images/hero-desa.jpg') }}" alt="Bimbel Pados Ilmu" class="w-full h-auto object-cover">
+                <img src="{{ asset('images/hero-desa.jpg') }}" alt="Taman Belajar Sedjati" class="w-full h-auto object-cover">
             </div>
         </div>
     </div>

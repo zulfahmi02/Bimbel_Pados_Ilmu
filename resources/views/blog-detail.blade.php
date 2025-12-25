@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', $post->title . ' - Blog Bimbel Pados Ilmu')
+@section('title', $post->title . ' - Blog Taman Belajar Sedjati')
 
 @section('description', $post->excerpt ?? Str::limit(strip_tags($post->content), 160))
 

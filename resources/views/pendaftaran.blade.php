@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Pendaftaran - Bimbel Pados Ilmu')
+@section('title', 'Pendaftaran - Taman Belajar Sedjati')
 
-@section('description', 'Daftar sekarang di Bimbel Pados Ilmu dan dapatkan bimbingan belajar terbaik untuk meningkatkan prestasi akademik Anda.')
+@section('description', 'Daftar sekarang di Taman Belajar Sedjati dan dapatkan bimbingan belajar terbaik untuk meningkatkan prestasi akademik Anda.')
 
 @section('content')
 

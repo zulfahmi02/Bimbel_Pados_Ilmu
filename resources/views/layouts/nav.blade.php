@@ -5,7 +5,7 @@
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="flex items-center space-x-3">
                     <img src="{{ asset('images/logo.png') }}" alt="Logo Bimbel Pados Ilmu" class="h-10 w-auto">
-                    <span class="text-xl font-bold text-gray-800">Bimbel Pados Ilmu</span>
+                    <span class="text-xl font-bold text-gray-800">Taman Belajar Sedjati</span>
                 </a>
             </div>
 

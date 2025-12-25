@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beranda - Bimbel Pados Ilmu')
+@section('title', 'Beranda - Taman Belajar Sedjati')
 
 @section('description', 'Bimbel pelajaran utama yang ditujukan untuk para murid agar dapat belajar lebih fokus dan mendapatkan pendampingan dari guru secara privat di Desa Gajah, Bojonegoro.')
 
@@ -16,7 +16,7 @@
                     Belajar, Berkembang, Dan Berkarya Di Desa Gajah
                 </h1>
                 <p class="text-base text-gray-700 leading-relaxed mb-8">
-                    Bimbel pados ilmu adalah bimbel pelajaran utama yang ditujukan untuk para murid agar dapat belajar lebih fokus dan mendapatkan pendampingan dari guru secara privat. Tombol utama mengarah ke pendaftaran & jadwal hari ini
+                    Taman Belajar Sedjati adalah bimbel pelajaran utama yang ditujukan untuk para murid agar dapat belajar lebih fokus dan mendapatkan pendampingan dari guru secara privat. Tombol utama mengarah ke pendaftaran & jadwal hari ini
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
                     <a href="{{ route('pendaftaran') }}" class="inline-block bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold text-center hover:bg-emerald-600 transition duration-300 shadow-lg hover:shadow-xl">
@@ -42,7 +42,7 @@
 <section class="py-16 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-12">
-            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Kenapa Memilih Bimbel Pados Ilmu?</h2>
+            <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Kenapa Memilih Taman Belajar Sedjati?</h2>
             <p class="text-lg text-gray-600 max-w-2xl mx-auto">
                 Kami memberikan pendampingan terbaik untuk membantu murid mencapai potensi maksimalnya
             </p>
