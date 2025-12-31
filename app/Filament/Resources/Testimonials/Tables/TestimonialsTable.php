@@ -17,27 +17,30 @@ class TestimonialsTable
     {
         return $table
             ->columns([
+                ImageColumn::make('image')
+                    ->label('Foto')
+                    ->disk('public')
+                    ->visibility('public')
+                    ->circular(),
                 TextColumn::make('name')
-                    ->searchable(),
-                TextColumn::make('role')
-                    ->searchable(),
+                    ->label('Nama')
+                    ->searchable()
+                    ->sortable()
+                    ->weight('bold')
+                    ->description(fn ($record) => $record->role),
                 TextColumn::make('rating')
+                    ->label('Rating')
+                    ->badge()
+                    ->color('warning')
                     ->numeric()
                     ->sortable(),
-                ImageColumn::make('image'),
                 IconColumn::make('is_active')
+                    ->label('Aktif')
                     ->boolean(),
                 TextColumn::make('order')
+                    ->label('Urutan')
                     ->numeric()
                     ->sortable(),
-                TextColumn::make('created_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
-                TextColumn::make('updated_at')
-                    ->dateTime()
-                    ->sortable()
-                    ->toggleable(isToggledHiddenByDefault: true),
             ])
             ->filters([
                 //

@@ -123,7 +123,7 @@
                                 </p>
                             @endif
                             
-                            <a href="{{ route('pendaftaran') }}" class="block w-full bg-emerald-500 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition duration-300">
+                            <a href="{{ route('pendaftaran', ['program' => $program->title]) }}" class="block w-full bg-emerald-500 text-white text-center px-6 py-3 rounded-lg font-semibold hover:bg-emerald-600 transition duration-300">
                                 Daftar Sekarang
                             </a>
                         </div>

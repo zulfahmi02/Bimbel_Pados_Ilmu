@@ -19,8 +19,16 @@ use Filament\Tables\Table;
 class TestimonialResource extends Resource
 {
     protected static ?string $model = Testimonial::class;
+    
+    protected static string|BackedEnum|null $navigationIcon = 'heroicon-o-chat-bubble-left-right';
+    
+    protected static ?string $modelLabel = 'Testimoni';
 
-    protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;
+    protected static ?string $pluralModelLabel = 'Testimoni';
+
+    protected static \UnitEnum|string|null $navigationGroup = 'Konten Website';
+
+    protected static ?int $navigationSort = 3;
 
     protected static ?string $recordTitleAttribute = 'name';
 

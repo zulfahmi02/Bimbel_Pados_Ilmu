@@ -3,6 +3,7 @@
 namespace App\Filament\Resources\Statistics\Schemas;
 
 use Filament\Forms\Components\TextInput;
+use Filament\Schemas\Components\Section;
 use Filament\Schemas\Schema;
 
 class StatisticForm
@@ -11,15 +12,21 @@ class StatisticForm
     {
         return $schema
             ->components([
-                TextInput::make('label')
-                    ->required(),
-                TextInput::make('value')
-                    ->required(),
-                TextInput::make('icon'),
-                TextInput::make('order')
-                    ->required()
-                    ->numeric()
-                    ->default(0),
+                Section::make('Data Statistik')
+                    ->schema([
+                        TextInput::make('label')
+                            ->label('Label')
+                            ->placeholder('Contoh: Siswa Aktif')
+                            ->required(),
+                        TextInput::make('value')
+                            ->label('Nilai/Angka')
+                            ->placeholder('Contoh: 200+')
+                            ->required(),
+                        TextInput::make('order')
+                            ->label('Urutan')
+                            ->numeric()
+                            ->default(0),
+                    ])->columns(2),
             ]);
     }
 }

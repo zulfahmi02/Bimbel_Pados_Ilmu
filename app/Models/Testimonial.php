@@ -20,4 +20,23 @@ class Testimonial extends Model
         'is_active' => 'boolean',
         'rating' => 'integer',
     ];
+
+    public function scopeActive($query)
+    {
+        return $query->where('is_active', true);
+    }
+
+    public function scopeOrdered($query)
+    {
+        return $query->orderBy('order')->orderBy('created_at', 'desc');
+    }
+
+    public function getImageUrlAttribute(): ?string
+    {
+        if ($this->image) {
+            return '/storage/' . $this->image;
+        }
+        
+        return null;
+    }
 }

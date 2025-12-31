@@ -154,35 +154,107 @@
             </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden text-center p-8">
-                <div class="w-32 h-32 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <span class="text-white text-4xl font-bold">15+</span>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Guru Berpengalaman</h3>
-                <p class="text-gray-600">Tenaga pengajar profesional dengan pengalaman mengajar minimal 3 tahun</p>
-            </div>
+        @if(isset($headTeacher))
+        <!-- Head Teacher Section -->
+        <div class="mb-16">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
+                    <div class="md:col-span-4 h-96 md:h-auto relative">
+                        @if($headTeacher->photo_url)
+                            <img src="{{ $headTeacher->photo_url }}" alt="{{ $headTeacher->name }}" class="w-full h-full object-cover">
+                        @else
+                            <div class="w-full h-full bg-emerald-100 flex items-center justify-center">
+                                <svg class="w-32 h-32 text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                            </div>
+                        @endif
+                    </div>
+                    <div class="md:col-span-8 p-8 md:p-12 flex flex-col justify-center">
+                        <div class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 w-max">
+                            {{ $headTeacher->role }}
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-2">{{ $headTeacher->name }}</h3>
+                        <p class="text-gray-500 mb-6 font-medium">{{ $headTeacher->education }}</p>
+                        
+                        <div class="prose prose-emerald text-gray-600 mb-6">
+                            {!! $headTeacher->bio ? $headTeacher->bio : $headTeacher->description !!}
+                        </div>
 
-            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden text-center p-8">
-                <div class="w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
-                    </svg>
+                        @if($headTeacher->specializations)
+                        <div class="flex flex-wrap gap-2 mt-auto">
+                            @foreach($headTeacher->specializations as $spec)
+                                <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-sm border border-gray-200">
+                                    {{ $spec }}
+                                </span>
+                            @endforeach
+                        </div>
+                        @endif
+                    </div>
                 </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Tersertifikasi</h3>
-                <p class="text-gray-600">Guru dengan latar belakang pendidikan yang sesuai dan tersertifikasi</p>
-            </div>
-
-            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden text-center p-8">
-                <div class="w-32 h-32 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
-                    </svg>
-                </div>
-                <h3 class="text-xl font-bold text-gray-900 mb-2">Metode Terbukti</h3>
-                <p class="text-gray-600">Menggunakan metode pembelajaran yang telah terbukti efektif</p>
             </div>
         </div>
+        @endif
+
+        @if($instructors && $instructors->count() > 0)
+        <!-- Instructors Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            @foreach($instructors as $instructor)
+            <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
+                <div class="relative h-64 overflow-hidden">
+                    @if($instructor->photo_url)
+                        <img src="{{ $instructor->photo_url }}" alt="{{ $instructor->name }}" class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
+                    @else
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                             <svg class="w-20 h-20 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                    @endif
+                    
+                    @if($instructor->is_certified)
+                        <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 rounded-full p-1.5 shadow-lg" title="Tersertifikasi">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                    @endif
+                </div>
+                
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-gray-900 mb-1">{{ $instructor->name }}{{ $instructor->title ? ', '.$instructor->title : '' }}</h3>
+                    <p class="text-emerald-600 font-medium text-sm mb-3">{{ $instructor->subject }}</p>
+                    
+                    <p class="text-gray-600 text-sm mb-4 line-clamp-3">
+                        {{ $instructor->description }}
+                    </p>
+
+                    <div class="border-t pt-4 mt-auto">
+                        <div class="flex items-center text-sm text-gray-500 mb-2">
+                             <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
+                            </svg>
+                            {{ $instructor->education }}
+                        </div>
+                        <div class="flex items-center text-sm text-gray-500">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                            {{ $instructor->experience_years }} Tahun Pengalaman
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @else
+        <!-- Empty State -->
+         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-xl shadow-md p-8 text-center col-span-3">
+                <p class="text-gray-500 italic">Data pengajar belum tersedia.</p>
+            </div>
+        </div>
+        @endif
     </div>
 </section>
 
