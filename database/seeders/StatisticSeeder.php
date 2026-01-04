@@ -2,42 +2,45 @@
 
 namespace Database\Seeders;
 
-use App\Models\Statistic;
 use Illuminate\Database\Seeder;
+use App\Models\Statistic;
 
 class StatisticSeeder extends Seeder
 {
     public function run(): void
     {
-        $statistics = [
+        // Clear existing statistics to prevent duplicates during seeding
+        Statistic::truncate();
+
+        $stats = [
             [
                 'label' => 'Siswa Aktif',
-                'value' => '200+',
-                'icon' => 'users',
+                'value' => '0', // Will be auto-replaced by controller
+                'icon' => 'heroicon-o-users',
                 'order' => 1,
             ],
             [
                 'label' => 'Guru Berpengalaman',
-                'value' => '15+',
-                'icon' => 'teachers',
+                'value' => '0', // Will be auto-replaced by controller
+                'icon' => 'heroicon-o-academic-cap',
                 'order' => 2,
             ],
             [
                 'label' => 'Tingkat Kepuasan',
                 'value' => '95%',
-                'icon' => 'satisfaction',
+                'icon' => 'heroicon-o-face-smile',
                 'order' => 3,
             ],
             [
                 'label' => 'Tahun Berpengalaman',
                 'value' => '5+',
-                'icon' => 'experience',
+                'icon' => 'heroicon-o-clock',
                 'order' => 4,
             ],
         ];
 
-        foreach ($statistics as $statistic) {
-            Statistic::create($statistic);
+        foreach ($stats as $stat) {
+            Statistic::create($stat);
         }
     }
 }

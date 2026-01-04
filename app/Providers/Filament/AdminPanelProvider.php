@@ -34,6 +34,7 @@ class AdminPanelProvider extends PanelProvider
             ->colors([
                 'primary' => Color::Emerald,
             ])
+            ->darkMode(true)
             ->font('Inter')
             ->spa()
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\\Filament\\Resources')
