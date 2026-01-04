@@ -26,7 +26,7 @@ class ProgramResource extends Resource
 
     public static function form(Schema $schema): Schema
     {
-        return ProgramForm::configure($schema);
+        return $schema->components(ProgramForm::schema());
     }
 
     public static function infolist(Schema $schema): Schema

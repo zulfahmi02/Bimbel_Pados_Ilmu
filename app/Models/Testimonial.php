@@ -34,9 +34,9 @@ class Testimonial extends Model
     public function getImageUrlAttribute(): ?string
     {
         if ($this->image) {
-            return '/storage/' . $this->image;
+            return asset('storage/' . $this->image);
         }
-        
+
         return null;
     }
 }

@@ -18,7 +18,7 @@ class BlogPostForm
                 TextInput::make('title')
                     ->required()
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
+                    ->afterStateUpdated(fn($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
                 TextInput::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true),
@@ -36,9 +36,11 @@ class BlogPostForm
                 TextInput::make('author')
                     ->required()
                     ->default('Admin'),
-                DateTimePicker::make('published_at'),
+                DateTimePicker::make('published_at')
+                    ->default(now()),
                 Toggle::make('is_published')
-                    ->required(),
+                    ->required()
+                    ->default(true),
             ]);
     }
 }
