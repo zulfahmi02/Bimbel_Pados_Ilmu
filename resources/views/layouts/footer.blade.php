@@ -8,9 +8,9 @@
                     <h3 class="text-xl font-bold">Taman Belajar Sedjati</h3>
                 </div>
                 <p class="text-emerald-100 text-sm leading-relaxed">
-                    Taman Belajar Sedjati adalah lembaga bimbingan belajar yang berlokasi di Desa Gajah, Bojonegoro.
-                    Kami hadir dengan komitmen untuk memberikan pendampingan belajar terbaik bagi siswa SD, SMP, dan
-                    SMA.
+                    Taman Belajar Sedjati adalah tempat bertumbuh dan berkembang anak-anak sesuai dengan minat dan bakat
+                    mereka. Kami bertempat di desa Gajah kecamatan Baureno kabupaten Bojonegoro. Kami hadir dengan
+                    komitmen untuk memberikan pendampingan belajar terbaik bagi murid.
                 </p>
             </div>
 
@@ -60,7 +60,7 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <span class="text-emerald-100 text-sm">info@bimbelpados.com</span>
+                        <span class="text-emerald-100 text-sm">info@tamanbelajarsedjati.com</span>
                     </li>
                     <li class="flex items-center space-x-3">
                         <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
