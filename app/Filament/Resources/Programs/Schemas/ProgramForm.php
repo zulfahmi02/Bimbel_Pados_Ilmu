@@ -38,7 +38,7 @@ class ProgramForm
                         TextInput::make('price')
                             ->required()
                             ->numeric()
-                            ->prefix('$'),
+                            ->prefix('Rp'),
                         TextInput::make('duration')
                             ->required(),
                         TextInput::make('max_students')
