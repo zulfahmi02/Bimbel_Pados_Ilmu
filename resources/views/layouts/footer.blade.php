@@ -85,7 +85,7 @@
                         </svg>
                     </a>
                     <!-- ig -->
-                    <a href="https://www.instagram.com/rumah.sedjati/"
+                    <a href="https://www.instagram.com/tamanbelajarsedjati?igsh=MXYzaDc3bjZ5bzVkaQ==/"
                         class="bg-white bg-opacity-20 hover:bg-opacity-30 p-2 rounded-full transition duration-300">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                             <path
