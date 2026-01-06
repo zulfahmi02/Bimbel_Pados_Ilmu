@@ -10,18 +10,25 @@ class EventController extends Controller
 {
     public function index()
     {
-        $upcomingEvents = Event::where('is_active', true)
-            ->where('event_date', '>=', now())
-            ->orderBy('event_date')
-            ->get();
+        $today = now()->startOfDay();
 
-        $pastEvents = Event::where('is_active', true)
-            ->where('event_date', '<', now())
-            ->orderBy('event_date', 'desc')
-            ->take(6)
-            ->get();
+        // Get all active events
+        $allEvents = Event::where('is_active', true)->get();
 
-        return view('event', compact('upcomingEvents', 'pastEvents'));
+        // Categorize events based on their status
+        $upcomingEvents = $allEvents->filter(function ($event) {
+            return $event->isUpcoming();
+        })->sortBy('event_date')->values();
+
+        $ongoingEvents = $allEvents->filter(function ($event) {
+            return $event->isOngoing();
+        })->sortBy('event_date')->values();
+
+        $pastEvents = $allEvents->filter(function ($event) {
+            return $event->isPast();
+        })->sortByDesc('event_date')->take(6)->values();
+
+        return view('event', compact('upcomingEvents', 'ongoingEvents', 'pastEvents'));
     }
 
     public function show($slug)
@@ -43,6 +50,7 @@ class EventController extends Controller
     {
         $event = Event::where('slug', $slug)->where('is_active', true)->firstOrFail();
 
+        // Validate the form data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|max:255',
@@ -50,11 +58,26 @@ class EventController extends Controller
             'message' => 'nullable|string|max:1000',
         ]);
 
-        $validated['event_id'] = $event->id;
-        $validated['status'] = 'pending';
+        // Build WhatsApp message
+        $whatsappNumber = '6282237343764'; // Your WhatsApp number
+        $message = "Halo, saya ingin mendaftar event *{$event->title}*\n\n";
+        $message .= "Nama: {$validated['name']}\n";
+        $message .= "Email: {$validated['email']}\n";
+        $message .= "No. Telepon: {$validated['phone']}\n";
 
-        EventRegistration::create($validated);
+        if (!empty($validated['message'])) {
+            $message .= "Pesan: {$validated['message']}\n";
+        }
 
-        return redirect()->back()->with('success', 'Pendaftaran event berhasil! Kami akan menghubungi Anda segera.');
+        $message .= "\nTanggal Event: " . $event->event_date->format('d F Y');
+
+        if ($event->event_time) {
+            $message .= " - " . $event->event_time->format('H:i') . " WIB";
+        }
+
+        // Redirect to WhatsApp
+        $whatsappUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($message);
+
+        return redirect($whatsappUrl);
     }
 }

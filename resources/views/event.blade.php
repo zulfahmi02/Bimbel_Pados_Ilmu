@@ -96,6 +96,84 @@
         </div>
     </section>
 
+    <!-- Ongoing Events Section -->
+    @if($ongoingEvents->count() > 0)
+        <section class="py-16 bg-emerald-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Event Sedang Berlangsung</h2>
+                    <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                        Event yang sedang berlangsung saat ini
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    @foreach($ongoingEvents as $event)
+                        <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden border-2 border-emerald-500">
+                            <div class="absolute top-4 right-4 z-10">
+                                <span class="bg-emerald-500 text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                    Sedang Berlangsung
+                                </span>
+                            </div>
+                            
+                            @if($event->image)
+                                <div class="h-48 overflow-hidden">
+                                    <img src="{{ asset('storage/' . $event->image) }}" alt="{{ $event->title }}"
+                                        class="w-full h-full object-cover">
+                                </div>
+                            @else
+                                <div class="h-48 bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center">
+                                    <svg class="w-20 h-20 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                            @endif
+
+                            <div class="p-6">
+                                <div class="flex items-center text-sm text-emerald-600 mb-3">
+                                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    {{ $event->event_date->format('d F Y') }}
+                                    @if($event->event_time)
+                                        <span class="mx-2">•</span>
+                                        <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                        {{ $event->event_time->format('H:i') }} WIB
+                                    @endif
+                                </div>
+
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $event->title }}</h3>
+                                <p class="text-gray-600 mb-4">{{ Str::limit($event->description, 120) }}</p>
+
+                                @if($event->location)
+                                    <div class="flex items-center text-sm text-gray-500 mb-4">
+                                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                        {{ $event->location }}
+                                    </div>
+                                @endif
+
+                                <a href="{{ route('event.show', $event->slug) }}"
+                                    class="inline-block bg-emerald-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-emerald-700 transition duration-300">
+                                    Selengkapnya
+                                </a>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+
     <!-- Past Events Section -->
     @if($pastEvents->count() > 0)
         <section class="py-16 bg-gray-50">

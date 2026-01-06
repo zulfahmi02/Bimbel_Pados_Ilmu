@@ -19,7 +19,7 @@ class EventForm
                 TextInput::make('title')
                     ->required()
                     ->live(onBlur: true)
-                    ->afterStateUpdated(fn ($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
+                    ->afterStateUpdated(fn($state, callable $set) => $set('slug', \Illuminate\Support\Str::slug($state))),
                 TextInput::make('slug')
                     ->required()
                     ->unique(ignoreRecord: true),
@@ -29,6 +29,13 @@ class EventForm
                 DatePicker::make('event_date')
                     ->required(),
                 TimePicker::make('event_time'),
+                TextInput::make('event_duration_days')
+                    ->label('Durasi Event (Hari)')
+                    ->numeric()
+                    ->default(1)
+                    ->minValue(1)
+                    ->required()
+                    ->helperText('Berapa hari event ini akan berlangsung'),
                 TextInput::make('location'),
                 FileUpload::make('image')
                     ->image()
