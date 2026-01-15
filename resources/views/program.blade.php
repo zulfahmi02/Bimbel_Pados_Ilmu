@@ -151,7 +151,7 @@
             Hubungi kami untuk konsultasi gratis dan temukan program yang paling sesuai dengan kebutuhan belajar Anda
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel" target="_blank" class="inline-block bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-600 transition duration-300 shadow-lg hover:shadow-xl">
+            <a href="https://wa.me/6282237343764?text=Halo,%20saya%20ingin%20konsultasi%20tentang%20program%20bimbel" target="_blank" class="inline-block bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-600 transition duration-300 shadow-lg hover:shadow-xl">
                 Konsultasi via WhatsApp
             </a>
             <a href="{{ route('pendaftaran') }}" class="inline-block bg-white text-gray-800 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition duration-300 shadow-md hover:shadow-lg border-2 border-gray-300">

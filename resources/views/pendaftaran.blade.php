@@ -218,7 +218,7 @@
             <p class="text-gray-600 mb-8">
                 Hubungi kami melalui WhatsApp untuk informasi lebih lanjut
             </p>
-            <a href="https://wa.me/6281234567890?text=Halo,%20saya%20ingin%20bertanya%20tentang%20pendaftaran%20di%20Bimbel%20Pados%20Ilmu"
+            <a href="https://wa.me/6282237343764?text=Halo,%20saya%20ingin%20bertanya%20tentang%20pendaftaran%20di%20Bimbel%20Pados%20Ilmu"
                 target="_blank"
                 class="inline-flex items-center bg-green-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-green-700 transition duration-300 shadow-lg hover:shadow-xl">
                 <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">

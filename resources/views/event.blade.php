@@ -241,7 +241,7 @@
                     class="inline-block bg-emerald-500 text-white px-8 py-4 rounded-lg font-semibold hover:bg-emerald-600 transition duration-300 shadow-lg hover:shadow-xl">
                     Daftar Sekarang
                 </a>
-                <a href="https://wa.me/6281234567890" target="_blank"
+                <a href="https://wa.me/6282237343764" target="_blank"
                     class="inline-block bg-white text-emerald-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-50 transition duration-300 shadow-md hover:shadow-lg border-2 border-emerald-500">
                     Hubungi Kami
                 </a>

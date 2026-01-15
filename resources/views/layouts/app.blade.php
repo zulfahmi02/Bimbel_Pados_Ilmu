@@ -36,13 +36,15 @@
     <meta property="twitter:image" content="@yield('og:image', asset('images/hero.jpg'))">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="{{ asset('images/logo.png') }}">
-    <link rel="apple-touch-icon" href="{{ asset('images/logo.png') }}">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon-32.png') }}">
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('favicon-192.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('apple-touch-icon.png') }}">
 
     <!-- Organization Schema for Google SEO -->
     <script type="application/ld+json">
     {
-      "@context": "https://schema.org",
+      "@@context": "https://schema.org",
       "@type": "Organization",
       "url": "{{ url('/') }}",
       "logo": "{{ asset('images/logo.png') }}"
