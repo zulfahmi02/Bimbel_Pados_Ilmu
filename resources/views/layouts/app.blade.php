@@ -14,7 +14,7 @@
     <meta name="description"
         content="@yield('description', 'Bimbel pelajaran utama yang ditujukan untuk para murid agar dapat belajar lebih fokus dan mendapatkan pendampingan dari guru secara privat di Desa Gajah.')">
     <meta name="keywords" content="bimbel, bimbingan belajar, desa gajah, bojonegoro, les privat, pendidikan">
-    <meta name="author" content="Bimbel Pados Ilmu">
+    <meta name="author" content="Taman Belajar Sedjati">
     <link rel="canonical" href="{{ url()->current() }}">
 
     <!-- Open Graph / Facebook -->

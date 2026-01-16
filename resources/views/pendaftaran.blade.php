@@ -170,7 +170,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold text-gray-900 mb-4">Kenapa Harus Daftar Sekarang?</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto">
-                    Dapatkan berbagai keuntungan dengan mendaftar di Bimbel Pados Ilmu
+                    Dapatkan berbagai keuntungan dengan mendaftar di Taman Belajar Sedjati
                 </p>
             </div>
 

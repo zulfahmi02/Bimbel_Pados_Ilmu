@@ -95,7 +95,7 @@
                 Siap Meningkatkan Prestasi Belajar?
             </h2>
             <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Bergabunglah dengan ratusan siswa yang telah merasakan manfaat belajar di Bimbel Pados Ilmu
+                Bergabunglah dengan ratusan siswa yang telah merasakan manfaat belajar di Taman Belajar Sedjati
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('pendaftaran') }}"

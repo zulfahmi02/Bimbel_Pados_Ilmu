@@ -300,7 +300,7 @@
                 Siap Bergabung Bersama Kami?
             </h2>
             <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Daftar sekarang dan rasakan pengalaman belajar yang berkualitas di Bimbel Pados Ilmu
+                Daftar sekarang dan rasakan pengalaman belajar yang berkualitas di Taman Belajar Sedjati
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="{{ route('pendaftaran') }}"

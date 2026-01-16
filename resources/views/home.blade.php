@@ -177,7 +177,7 @@
             <div class="text-center mb-12">
                 <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Apa Kata Mereka?</h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Testimoni dari siswa dan orang tua yang telah merasakan manfaat belajar di Bimbel Pados Ilmu
+                    Testimoni dari siswa dan orang tua yang telah merasakan manfaat belajar di Taman Belajar Sedjati
                 </p>
             </div>
 
@@ -267,7 +267,8 @@
                 Siap Meningkatkan Prestasi Belajar?
             </h2>
             <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-                Bergabunglah dengan ratusan siswa yang telah merasakan manfaat belajar di Bimbel Pados Ilmu. Daftar sekarang
+                Bergabunglah dengan ratusan siswa yang telah merasakan manfaat belajar di Taman Belajar Sedjati. Daftar
+                sekarang
                 dan dapatkan konsultasi gratis!
             </p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">

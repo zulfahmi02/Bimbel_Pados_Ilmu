@@ -21,7 +21,7 @@ class TestimonialSeeder extends Seeder
             [
                 'name' => 'Siti Nur Azizah',
                 'role' => 'Orang Tua Siswa SD',
-                'content' => 'Anak saya jadi lebih semangat belajar. Gurunya ramah dan metode mengajarnya mudah dipahami. Terima kasih Bimbel Pados Ilmu!',
+                'content' => 'Anak saya jadi lebih semangat belajar. Gurunya ramah dan metode mengajarnya mudah dipahami. Terima kasih Taman Belajar Sedjati!',
                 'rating' => 5,
                 'is_active' => true,
                 'order' => 2,
