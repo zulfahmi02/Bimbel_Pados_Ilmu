@@ -15,6 +15,7 @@ class Event extends Model
         'event_time',
         'event_duration_days',
         'location',
+        'whatsapp_contact',
         'image',
         'is_active',
     ];
@@ -89,5 +90,14 @@ class Event extends Model
     public function isPast()
     {
         return $this->getEventStatus() === 'past';
+    }
+
+    /**
+     * Get the WhatsApp number for this event
+     * Falls back to default number if not set
+     */
+    public function getWhatsAppNumber()
+    {
+        return $this->whatsapp_contact ?: '6282237343764';
     }
 }

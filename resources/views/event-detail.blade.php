@@ -198,7 +198,7 @@
                                 <p class="text-sm text-gray-600 text-center">
                                     Atau hubungi kami langsung
                                 </p>
-                                <a href="https://wa.me/6282237343764?text=Halo,%20saya%20ingin%20mendaftar%20event%20{{ urlencode($event->title) }}"
+                                <a href="https://wa.me/{{ $event->getWhatsAppNumber() }}?text=Halo,%20saya%20ingin%20mendaftar%20event%20{{ urlencode($event->title) }}"
                                     target="_blank"
                                     class="mt-3 w-full flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300">
                                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -212,7 +212,8 @@
                             <!-- Ongoing Event Message -->
                             <div class="text-center">
                                 <div class="mb-4 p-4 bg-emerald-100 border-2 border-emerald-500 rounded-lg">
-                                    <svg class="w-16 h-16 mx-auto text-emerald-600 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-16 h-16 mx-auto text-emerald-600 mb-3" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -221,12 +222,12 @@
                                         Event ini sedang berlangsung hingga {{ $event->getEventEndDate()->format('d F Y') }}
                                     </p>
                                 </div>
-                                
+
                                 <p class="text-gray-600 mb-4">
                                     Untuk informasi lebih lanjut, hubungi kami
                                 </p>
-                                
-                                <a href="https://wa.me/6282237343764?text=Halo,%20saya%20ingin%20informasi%20tentang%20event%20{{ urlencode($event->title) }}"
+
+                                <a href="https://wa.me/{{ $event->getWhatsAppNumber() }}?text=Halo,%20saya%20ingin%20informasi%20tentang%20event%20{{ urlencode($event->title) }}"
                                     target="_blank"
                                     class="w-full flex items-center justify-center bg-green-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-green-700 transition duration-300">
                                     <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -240,7 +241,8 @@
                             <!-- Past Event Message -->
                             <div class="text-center">
                                 <div class="mb-4 p-4 bg-gray-100 border-2 border-gray-300 rounded-lg">
-                                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <svg class="w-16 h-16 mx-auto text-gray-400 mb-3" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
@@ -249,11 +251,11 @@
                                         Event ini telah selesai pada {{ $event->getEventEndDate()->format('d F Y') }}
                                     </p>
                                 </div>
-                                
+
                                 <p class="text-gray-600 mb-4">
                                     Lihat event mendatang kami yang lain
                                 </p>
-                                
+
                                 <a href="{{ route('event') }}"
                                     class="w-full inline-block bg-emerald-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-emerald-700 transition duration-300">
                                     Lihat Event Lainnya

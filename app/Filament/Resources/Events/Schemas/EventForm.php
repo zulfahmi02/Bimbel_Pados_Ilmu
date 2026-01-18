@@ -37,6 +37,13 @@ class EventForm
                     ->required()
                     ->helperText('Berapa hari event ini akan berlangsung'),
                 TextInput::make('location'),
+                TextInput::make('whatsapp_contact')
+                    ->label('Nomor WhatsApp Narahubung')
+                    ->placeholder('6281234567890')
+                    ->helperText('Masukkan nomor WhatsApp dengan kode negara (tanpa + atau spasi). Contoh: 6281234567890. Kosongkan untuk menggunakan nomor default.')
+                    ->tel()
+                    ->minLength(10)
+                    ->maxLength(20),
                 FileUpload::make('image')
                     ->image()
                     ->directory('event-images')

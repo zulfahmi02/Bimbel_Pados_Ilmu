@@ -59,7 +59,7 @@ class EventController extends Controller
         ]);
 
         // Build WhatsApp message
-        $whatsappNumber = '6282237343764'; // Your WhatsApp number
+        $whatsappNumber = $event->getWhatsAppNumber();
         $message = "Halo, saya ingin mendaftar event *{$event->title}*\n\n";
         $message .= "Nama: {$validated['name']}\n";
         $message .= "Email: {$validated['email']}\n";
