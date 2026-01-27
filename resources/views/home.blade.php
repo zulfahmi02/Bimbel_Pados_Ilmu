@@ -132,7 +132,19 @@
                         @endif
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-900 mb-3">{{ $program->title }}</h3>
-                            <p class="text-gray-600 mb-4">{{ $program->description }}</p>
+                            <div class="description-container mb-4">
+                                @if(strlen($program->description) > 100)
+                                    <p class="text-gray-600">
+                                        <span class="description-short">{{ Str::limit($program->description, 100, '...') }}</span>
+                                        <span class="description-full hidden">{{ $program->description }}</span>
+                                    </p>
+                                    <button type="button" class="toggle-description text-emerald-600 hover:text-emerald-700 text-sm font-medium mt-1 focus:outline-none" onclick="toggleDescription(this)">
+                                        Selengkapnya <svg class="w-4 h-4 inline-block transition-transform duration-200 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+                                    </button>
+                                @else
+                                    <p class="text-gray-600">{{ $program->description }}</p>
+                                @endif
+                            </div>
 
                             @if(is_array($program->subjects) && count($program->subjects) > 0)
                                 <ul class="space-y-2 mb-6">
@@ -283,5 +295,31 @@
             </div>
         </div>
     </section>
+
+<script>
+function toggleDescription(button) {
+    const container = button.closest('.description-container');
+    const shortDesc = container.querySelector('.description-short');
+    const fullDesc = container.querySelector('.description-full');
+    
+    if (shortDesc.classList.contains('hidden')) {
+        // Collapse: show short, hide full
+        shortDesc.classList.remove('hidden');
+        fullDesc.classList.add('hidden');
+        button.innerHTML = 'Selengkapnya <svg class="w-4 h-4 inline-block transition-transform duration-200 arrow-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>';
+    } else {
+        // Expand: hide short, show full
+        shortDesc.classList.add('hidden');
+        fullDesc.classList.remove('hidden');
+        button.innerHTML = 'Lebih sedikit <svg class="w-4 h-4 inline-block transition-transform duration-200 arrow-icon rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>';
+    }
+}
+</script>
+
+<style>
+.rotate-180 {
+    transform: rotate(180deg);
+}
+</style>
 
 @endsection

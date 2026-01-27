@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Teacher extends Model
 {
@@ -13,6 +14,7 @@ class Teacher extends Model
         'bio',
         'description',
         'photo_url',
+        'whatsapp',
         'specializations',
         'is_active',
         'sort_order',
@@ -22,6 +24,11 @@ class Teacher extends Model
         'specializations' => 'array',
         'is_active' => 'boolean',
     ];
+
+    public function schedules(): HasMany
+    {
+        return $this->hasMany(Schedule::class);
+    }
 
     public function scopeActive($query)
     {
