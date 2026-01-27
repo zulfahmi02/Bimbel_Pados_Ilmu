@@ -178,45 +178,38 @@
             </div>
 
             @if(isset($headTeacher))
-                <!-- Head Teacher Section -->
-                <div class="mb-16">
-                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden">
-                        <div class="grid grid-cols-1 md:grid-cols-12 gap-0">
-                            <div class="md:col-span-4 h-96 md:h-auto relative">
-                                @if($headTeacher->photo_url)
-                                    <img src="{{ $headTeacher->photo_url }}" alt="{{ $headTeacher->name }}"
-                                        class="w-full h-full object-cover">
-                                @else
-                                    <div class="w-full h-full bg-emerald-100 flex items-center justify-center">
-                                        <svg class="w-32 h-32 text-emerald-300" fill="currentColor" viewBox="0 0 24 24">
-                                            <path
-                                                d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
-                                        </svg>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="md:col-span-8 p-8 md:p-12 flex flex-col justify-center">
-                                <div
-                                    class="inline-block bg-emerald-100 text-emerald-800 px-3 py-1 rounded-full text-sm font-semibold mb-4 w-max">
-                                    {{ $headTeacher->role }}
+                <!-- Head Teacher Section (centered card) -->
+                <div class="mb-16 flex justify-center">
+                    <div class="bg-white rounded-2xl shadow-xl overflow-hidden w-full max-w-4xl">
+                        <div class="flex flex-col items-center px-10 pt-10 pb-12 text-center">
+                            @if($headTeacher->photo_url)
+                                <img src="{{ asset('storage/' . $headTeacher->photo_url) }}" alt="{{ $headTeacher->name }}"
+                                    class="w-36 h-36 rounded-full object-cover shadow-lg mb-6">
+                            @else
+                                <div class="w-36 h-36 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center text-3xl font-bold shadow-lg mb-6">
+                                    {{ substr($headTeacher->name, 0, 1) }}
                                 </div>
-                                <h3 class="text-3xl font-bold text-gray-900 mb-2">{{ $headTeacher->name }}</h3>
-                                <p class="text-gray-500 mb-6 font-medium">{{ $headTeacher->education }}</p>
+                            @endif
 
-                                <div class="prose prose-emerald text-gray-600 mb-6">
-                                    {!! $headTeacher->bio ? $headTeacher->bio : $headTeacher->description !!}
-                                </div>
+                            <span class="inline-block bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold mb-3">
+                                {{ $headTeacher->role }}
+                            </span>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-2">{{ $headTeacher->name }}</h3>
+                            <p class="text-gray-500 mb-4 font-medium">{{ $headTeacher->education }}</p>
 
-                                @if($headTeacher->specializations)
-                                    <div class="flex flex-wrap gap-2 mt-auto">
-                                        @foreach($headTeacher->specializations as $spec)
-                                            <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-sm border border-gray-200">
-                                                {{ $spec }}
-                                            </span>
-                                        @endforeach
-                                    </div>
-                                @endif
+                            <div class="text-gray-600 leading-relaxed max-w-2xl mb-6">
+                                {!! $headTeacher->bio ? nl2br(e($headTeacher->bio)) : nl2br(e($headTeacher->description)) !!}
                             </div>
+
+                            @if($headTeacher->specializations)
+                                <div class="flex flex-wrap justify-center gap-2">
+                                    @foreach($headTeacher->specializations as $spec)
+                                        <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-sm border border-gray-200">
+                                            {{ $spec }}
+                                        </span>
+                                    @endforeach
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -229,7 +222,7 @@
                         <div class="bg-white rounded-xl shadow-md hover:shadow-xl transition duration-300 overflow-hidden group">
                             <div class="relative h-64 overflow-hidden">
                                 @if($instructor->photo_url)
-                                    <img src="{{ $instructor->photo_url }}" alt="{{ $instructor->name }}"
+                                    <img src="{{ asset('storage/' . $instructor->photo_url) }}" alt="{{ $instructor->name }}"
                                         class="w-full h-full object-cover transform group-hover:scale-110 transition duration-500">
                                 @else
                                     <div class="w-full h-full bg-gray-200 flex items-center justify-center">
@@ -239,28 +232,21 @@
                                         </svg>
                                     </div>
                                 @endif
-
-                                @if($instructor->is_certified)
-                                    <div class="absolute top-4 right-4 bg-yellow-400 text-yellow-900 rounded-full p-1.5 shadow-lg"
-                                        title="Tersertifikasi">
-                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                    </div>
-                                @endif
                             </div>
 
                             <div class="p-6">
                                 <h3 class="text-xl font-bold text-gray-900 mb-1">
-                                    {{ $instructor->name }}{{ $instructor->title ? ', ' . $instructor->title : '' }}</h3>
-                                <p class="text-emerald-600 font-medium text-sm mb-3">{{ $instructor->subject }}</p>
+                                    {{ $instructor->name }}
+                                </h3>
+                                <p class="text-emerald-600 font-medium text-sm mb-2">{{ $instructor->role }}</p>
 
-                                <p class="text-gray-600 text-sm mb-4 line-clamp-3">
-                                    {{ $instructor->description }}
-                                </p>
+                                @if($instructor->specializations)
+                                    <p class="text-gray-600 text-sm mb-3">
+                                        {{ is_array($instructor->specializations) ? implode(', ', $instructor->specializations) : $instructor->specializations }}
+                                    </p>
+                                @endif
 
-                                <div class="border-t pt-4 mt-auto">
+                                @if($instructor->education)
                                     <div class="flex items-center text-sm text-gray-500 mb-2">
                                         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -270,14 +256,11 @@
                                         </svg>
                                         {{ $instructor->education }}
                                     </div>
-                                    <div class="flex items-center text-sm text-gray-500">
-                                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                        </svg>
-                                        {{ $instructor->experience_years }} Tahun Pengalaman
-                                    </div>
-                                </div>
+                                @endif
+
+                                @if($instructor->description)
+                                    <p class="text-gray-600 text-sm line-clamp-3">{{ $instructor->description }}</p>
+                                @endif
                             </div>
                         </div>
                     @endforeach
