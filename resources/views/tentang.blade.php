@@ -201,9 +201,20 @@
                                 {!! $headTeacher->bio ? nl2br(e($headTeacher->bio)) : nl2br(e($headTeacher->description)) !!}
                             </div>
 
-                            @if($headTeacher->specializations)
+                            @php
+                                $headTeacherSpecs = $headTeacher->specializations;
+                                if (is_string($headTeacherSpecs)) {
+                                    $decoded = json_decode($headTeacherSpecs, true);
+                                    $headTeacherSpecs = is_array($decoded)
+                                        ? $decoded
+                                        : array_map('trim', explode(',', $headTeacherSpecs));
+                                }
+                                $headTeacherSpecs = is_array($headTeacherSpecs) ? array_filter($headTeacherSpecs) : [];
+                            @endphp
+
+                            @if(!empty($headTeacherSpecs))
                                 <div class="flex flex-wrap justify-center gap-2">
-                                    @foreach($headTeacher->specializations as $spec)
+                                    @foreach($headTeacherSpecs as $spec)
                                         <span class="bg-gray-100 text-gray-600 px-3 py-1 rounded-md text-sm border border-gray-200">
                                             {{ $spec }}
                                         </span>
