@@ -53,7 +53,7 @@ class EventController extends Controller
         // Validate the form data
         $validated = $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
+            'address' => 'required|string|max:500',
             'phone' => 'required|string|max:20',
             'message' => 'nullable|string|max:1000',
         ]);
@@ -62,7 +62,7 @@ class EventController extends Controller
         $whatsappNumber = $event->getWhatsAppNumber();
         $message = "Halo, saya ingin mendaftar event *{$event->title}*\n\n";
         $message .= "Nama: {$validated['name']}\n";
-        $message .= "Email: {$validated['email']}\n";
+        $message .= "Alamat: {$validated['address']}\n";
         $message .= "No. Telepon: {$validated['phone']}\n";
 
         if (!empty($validated['message'])) {
@@ -74,6 +74,16 @@ class EventController extends Controller
         if ($event->event_time) {
             $message .= " - " . $event->event_time->format('H:i') . " WIB";
         }
+
+        EventRegistration::create([
+            'event_id' => $event->id,
+            'name' => $validated['name'],
+            'address' => $validated['address'],
+            'email' => '',
+            'phone' => $validated['phone'],
+            'message' => $validated['message'] ?? null,
+            'status' => 'pending',
+        ]);
 
         // Redirect to WhatsApp
         $whatsappUrl = "https://wa.me/{$whatsappNumber}?text=" . urlencode($message);

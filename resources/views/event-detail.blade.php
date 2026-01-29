@@ -4,6 +4,8 @@
 
 @section('description', Str::limit($event->description, 160))
 
+@section('og:image', $event->image ? asset('storage/' . $event->image) : asset('images/hero.jpg'))
+
 @section('content')
 
     <!-- Event Detail Hero -->
@@ -162,15 +164,15 @@
                                 @csrf
 
                                 <div>
-                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap
-                                        *</label>
+                                    <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nama *</label>
                                     <input type="text" id="name" name="name" required value="{{ old('name') }}"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
                                 </div>
 
                                 <div>
-                                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email *</label>
-                                    <input type="email" id="email" name="email" required value="{{ old('email') }}"
+                                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Alamat
+                                        *</label>
+                                    <input type="text" id="address" name="address" required value="{{ old('address') }}"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
                                 </div>
 
@@ -182,8 +184,7 @@
                                 </div>
 
                                 <div>
-                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan
-                                        (Opsional)</label>
+                                    <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Pesan</label>
                                     <textarea id="message" name="message" rows="3"
                                         class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">{{ old('message') }}</textarea>
                                 </div>
