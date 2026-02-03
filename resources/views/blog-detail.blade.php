@@ -6,6 +6,63 @@
 
 @section('og:image', $post->image ? asset('storage/' . $post->image) : asset('images/hero.jpg'))
 
+@section('schema')
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "Article",
+      "headline": "{{ $post->title }}",
+      "description": "{{ $post->excerpt ?? Str::limit(strip_tags($post->content), 160) }}",
+      "image": "{{ $post->image ? asset('storage/' . $post->image) : asset('images/hero.jpg') }}",
+      "author": {
+        "@@type": "Person",
+        "name": "{{ $post->author }}"
+      },
+      "publisher": {
+        "@@type": "Organization",
+        "name": "Taman Belajar Sedjati",
+        "logo": {
+          "@@type": "ImageObject",
+          "url": "{{ asset('images/logo.png') }}"
+        }
+      },
+      "datePublished": "{{ $post->published_at->toIso8601String() }}",
+      "dateModified": "{{ $post->updated_at->toIso8601String() }}",
+      "mainEntityOfPage": {
+        "@@type": "WebPage",
+        "@@id": "{{ route('blog.show', $post->slug) }}"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@@type": "ListItem",
+          "position": 2,
+          "name": "Blog",
+          "item": "{{ route('blog') }}"
+        },
+        {
+          "@@type": "ListItem",
+          "position": 3,
+          "name": "{{ $post->title }}",
+          "item": "{{ route('blog.show', $post->slug) }}"
+        }
+      ]
+    }
+    </script>
+@endsection
+
 @section('content')
 
     <!-- Article Header -->

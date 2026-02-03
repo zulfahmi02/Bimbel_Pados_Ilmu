@@ -6,6 +6,71 @@
 
 @section('og:image', $event->image ? asset('storage/' . $event->image) : asset('images/hero.jpg'))
 
+@section('schema')
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "Event",
+      "name": "{{ $event->title }}",
+      "description": "{{ Str::limit($event->description, 200) }}",
+      "image": "{{ $event->image ? asset('storage/' . $event->image) : asset('images/hero.jpg') }}",
+      "startDate": "{{ $event->event_date->format('Y-m-d') }}{{ $event->event_time ? 'T' . $event->event_time->format('H:i:s') : '' }}",
+      "endDate": "{{ $event->getEventEndDate()->format('Y-m-d') }}",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@@type": "Place",
+        "name": "{{ $event->location ?? 'Taman Belajar Sedjati' }}",
+        "address": {
+          "@@type": "PostalAddress",
+          "addressLocality": "Bojonegoro",
+          "addressRegion": "Jawa Timur",
+          "addressCountry": "ID"
+        }
+      },
+      "organizer": {
+        "@@type": "Organization",
+        "name": "Taman Belajar Sedjati",
+        "url": "{{ url('/') }}"
+      },
+      "offers": {
+        "@@type": "Offer",
+        "url": "{{ route('event.show', $event->slug) }}",
+        "availability": "https://schema.org/InStock",
+        "price": "0",
+        "priceCurrency": "IDR"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@@context": "https://schema.org",
+      "@@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@@type": "ListItem",
+          "position": 1,
+          "name": "Beranda",
+          "item": "{{ url('/') }}"
+        },
+        {
+          "@@type": "ListItem",
+          "position": 2,
+          "name": "Event",
+          "item": "{{ route('event') }}"
+        },
+        {
+          "@@type": "ListItem",
+          "position": 3,
+          "name": "{{ $event->title }}",
+          "item": "{{ route('event.show', $event->slug) }}"
+        }
+      ]
+    }
+    </script>
+@endsection
+
 @section('content')
 
     <!-- Event Detail Hero -->

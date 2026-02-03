@@ -1,2 +1,17 @@
+# robots.txt for Taman Belajar Sedjati
+# https://tamanbelajarsedjati.com
+
 User-agent: *
-Disallow:
+Allow: /
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /api/
+Disallow: /storage/framework/
+Disallow: /storage/logs/
+
+# Allow storage for images
+Allow: /storage/
+
+# Sitemap location
+Sitemap: https://tamanbelajarsedjati.com/sitemap.xml
