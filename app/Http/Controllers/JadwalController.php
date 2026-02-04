@@ -17,6 +17,19 @@ class JadwalController extends Controller
 
         $days = ['Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu', 'Minggu'];
 
-        return view('jadwal', compact('schedules', 'days'));
+        // Determine today's day name in Indonesian
+        $dayMap = [
+            'Monday' => 'Senin',
+            'Tuesday' => 'Selasa',
+            'Wednesday' => 'Rabu',
+            'Thursday' => 'Kamis',
+            'Friday' => 'Jumat',
+            'Saturday' => 'Sabtu',
+            'Sunday' => 'Minggu',
+        ];
+        $today = $dayMap[now()->format('l')] ?? $days[0];
+        $defaultDay = in_array($today, $days) ? $today : $days[0];
+
+        return view('jadwal', compact('schedules', 'days', 'defaultDay'));
     }
 }
