@@ -196,10 +196,10 @@
                                                 Nama Siswa</th>
                                             <th
                                                 class="px-6 py-4 text-left text-xs font-semibold text-emerald-700 uppercase tracking-wider">
-                                                Pelajaran</th>
+                                                Waktu</th>                                                
                                             <th
                                                 class="px-6 py-4 text-left text-xs font-semibold text-emerald-700 uppercase tracking-wider">
-                                                Waktu</th>
+                                                Pelajaran</th>
                                             <th
                                                 class="px-6 py-4 text-left text-xs font-semibold text-emerald-700 uppercase tracking-wider">
                                                 Guru</th>
@@ -214,16 +214,17 @@
                                                     {{ $schedule->day_of_week }}</td>
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                     {{ $schedule->student_name }}</td>
-                                                <td class="px-6 py-4 whitespace-nowrap">
+                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
+                                                    {{ \Carbon\Carbon::parse($schedule->start_time)->format('H:i') }} -
+                                                    {{ \Carbon\Carbon::parse($schedule->end_time)->format('H:i') }}
+                                                </td>
+                                                    <td class="px-6 py-4 whitespace-nowrap">
                                                     <span
                                                         class="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-emerald-100 text-emerald-800">
                                                         {{ $schedule->subject }}
                                                     </span>
                                                 </td>
-                                                <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-700">
-                                                    {{ \Carbon\Carbon::parse($schedule->start_time)->format('H:i') }} -
-                                                    {{ \Carbon\Carbon::parse($schedule->end_time)->format('H:i') }}
-                                                </td>
+                                                
                                                 <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                     {{ $schedule->teacher->name ?? '-' }}
                                                 </td>
