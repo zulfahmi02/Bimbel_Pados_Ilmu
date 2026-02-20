@@ -20,7 +20,10 @@ class HeroSectionForm
                     ->required()
                     ->columnSpanFull(),
                 FileUpload::make('image')
-                    ->image(),
+                    ->image()
+                    ->directory('hero-images')
+                    ->disk('public')
+                    ->visibility('public'),
                 TextInput::make('cta_text')
                     ->required()
                     ->default('Daftar Sekarang'),

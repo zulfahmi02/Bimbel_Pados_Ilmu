@@ -33,7 +33,7 @@
                 <!-- Right Image -->
                 <div class="fade-in">
                     <div class="rounded-2xl overflow-hidden shadow-2xl h-96">
-                        <img src="{{ $heroSection && $heroSection->image ? asset('storage/' . $heroSection->image) : asset('images/hero.jpg') }}"
+                        <img src="{{ $heroSection?->image_url ?? asset('images/hero.jpg') }}"
                             alt="{{ $heroSection->title ?? 'Desa Gajah' }}" class="w-full h-full object-cover">
                     </div>
                 </div>
