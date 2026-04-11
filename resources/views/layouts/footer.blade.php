@@ -27,6 +27,10 @@
                             class="text-emerald-100 hover:text-white transition duration-300 text-sm">Program</a>
                     </li>
                     <li>
+                        <a href="{{ route('media-pembelajaran') }}"
+                            class="text-emerald-100 hover:text-white transition duration-300 text-sm">Media Pembelajaran</a>
+                    </li>
+                    <li>
                         <a href="{{ route('event') }}"
                             class="text-emerald-100 hover:text-white transition duration-300 text-sm">Event &
                             Kalender</a>

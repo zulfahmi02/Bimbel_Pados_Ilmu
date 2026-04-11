@@ -14,6 +14,12 @@
         <priority>0.9</priority>
     </url>
     <url>
+        <loc>{{ route('media-pembelajaran') }}</loc>
+        <lastmod>{{ now()->toAtomString() }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+    <url>
         <loc>{{ route('jadwal') }}</loc>
         <lastmod>{{ now()->toAtomString() }}</lastmod>
         <changefreq>daily</changefreq>
@@ -43,6 +49,16 @@
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
+
+    {{-- Dynamic Event Pages --}}
+    @foreach($learningMediaItems as $media)
+    <url>
+        <loc>{{ route('media-pembelajaran.show', $media->slug) }}</loc>
+        <lastmod>{{ $media->updated_at->toAtomString() }}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    @endforeach
 
     {{-- Dynamic Event Pages --}}
     @foreach($events as $event)

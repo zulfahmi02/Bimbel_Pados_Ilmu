@@ -9,11 +9,14 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\TentangController;
 use App\Http\Controllers\PendaftaranController;
 use App\Http\Controllers\SitemapController;
+use App\Http\Controllers\LearningMediaController;
 
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/program', [ProgramController::class, 'index'])->name('program');
+Route::get('/media-pembelajaran', [LearningMediaController::class, 'index'])->name('media-pembelajaran');
+Route::get('/media-pembelajaran/{slug}', [LearningMediaController::class, 'show'])->name('media-pembelajaran.show');
 Route::get('/jadwal', [JadwalController::class, 'index'])->name('jadwal');
 Route::get('/event', [EventController::class, 'index'])->name('event');
 Route::get('/event/{slug}', [EventController::class, 'show'])->name('event.show');

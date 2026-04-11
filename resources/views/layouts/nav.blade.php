@@ -18,6 +18,10 @@
                     class="text-gray-700 hover:text-emerald-600 font-medium transition duration-300 {{ request()->routeIs('program') ? 'text-emerald-600' : '' }}">
                     Program
                 </a>
+                <a href="{{ route('media-pembelajaran') }}"
+                    class="text-gray-700 hover:text-emerald-600 font-medium transition duration-300 {{ request()->routeIs('media-pembelajaran*') ? 'text-emerald-600' : '' }}">
+                    Media Pembelajaran
+                </a>
                 <a href="{{ route('jadwal') }}"
                     class="text-gray-700 hover:text-emerald-600 font-medium transition duration-300 {{ request()->routeIs('jadwal') ? 'text-emerald-600' : '' }}">
                     Jadwal Bimbel
@@ -69,6 +73,10 @@
             <a href="{{ route('program') }}"
                 class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium transition duration-300 {{ request()->routeIs('program') ? 'bg-emerald-50 text-emerald-600' : '' }}">
                 Program
+            </a>
+            <a href="{{ route('media-pembelajaran') }}"
+                class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium transition duration-300 {{ request()->routeIs('media-pembelajaran*') ? 'bg-emerald-50 text-emerald-600' : '' }}">
+                Media Pembelajaran
             </a>
             <a href="{{ route('jadwal') }}"
                 class="block px-4 py-3 text-gray-700 hover:bg-emerald-50 hover:text-emerald-600 rounded-lg font-medium transition duration-300 {{ request()->routeIs('jadwal') ? 'bg-emerald-50 text-emerald-600' : '' }}">
