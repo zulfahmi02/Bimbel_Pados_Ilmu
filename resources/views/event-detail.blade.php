@@ -242,6 +242,18 @@
                                 </div>
 
                                 <div>
+                                    <label for="kelas" class="block text-sm font-medium text-gray-700 mb-1">Kelas *</label>
+                                    <input type="text" id="kelas" name="kelas" required value="{{ old('kelas') }}"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                                </div>
+
+                                <div>
+                                    <label for="sekolah" class="block text-sm font-medium text-gray-700 mb-1">Sekolah *</label>
+                                    <input type="text" id="sekolah" name="sekolah" required value="{{ old('sekolah') }}"
+                                        class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500">
+                                </div>
+
+                                <div>
                                     <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">No. Telepon
                                         *</label>
                                     <input type="tel" id="phone" name="phone" required value="{{ old('phone') }}"

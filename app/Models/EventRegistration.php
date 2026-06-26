@@ -10,6 +10,8 @@ class EventRegistration extends Model
         'event_id',
         'name',
         'address',
+        'kelas',
+        'sekolah',
         'email',
         'phone',
         'message',

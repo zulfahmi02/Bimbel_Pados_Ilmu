@@ -54,6 +54,8 @@ class EventController extends Controller
         $validated = $request->validate([
             'name' => 'required|string|max:255',
             'address' => 'required|string|max:500',
+            'kelas' => 'required|string|max:100',
+            'sekolah' => 'required|string|max:255',
             'phone' => 'required|string|max:20',
             'message' => 'nullable|string|max:1000',
         ]);
@@ -63,6 +65,8 @@ class EventController extends Controller
         $message = "Halo, saya ingin mendaftar event *{$event->title}*\n\n";
         $message .= "Nama: {$validated['name']}\n";
         $message .= "Alamat: {$validated['address']}\n";
+        $message .= "Kelas: {$validated['kelas']}\n";
+        $message .= "Sekolah: {$validated['sekolah']}\n";
         $message .= "No. Telepon: {$validated['phone']}\n";
 
         if (!empty($validated['message'])) {
@@ -79,6 +83,8 @@ class EventController extends Controller
             'event_id' => $event->id,
             'name' => $validated['name'],
             'address' => $validated['address'],
+            'kelas' => $validated['kelas'],
+            'sekolah' => $validated['sekolah'],
             'email' => '',
             'phone' => $validated['phone'],
             'message' => $validated['message'] ?? null,
